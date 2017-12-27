@@ -51,6 +51,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.32</version>
@@ -58,11 +64,10 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-dbcp</artifactId>
-      <version>7.0.55</version>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
     </dependency>
-
 
   </dependencies>
 
