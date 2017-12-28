@@ -14,13 +14,13 @@ public class CashPairDAO {
     SessionFactory sessionFactory;
 
     public void save(CashPair cashPair){
-        sessionFactory.getCurrentSession().save(cashPair);
+        sessionFactory.getCurrentSession().saveOrUpdate(cashPair);
     }
 
-    public CashPair getCashPair(String key){
+    public CashPair getCashPair(String name){
         Criteria criteria = sessionFactory.getCurrentSession().createCriteria(CashPair.class);
         criteria.add(
-            Restrictions.eq("key", key)
+            Restrictions.eq("name", name)
         );
         return (CashPair) criteria.uniqueResult();
     }

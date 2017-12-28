@@ -14,13 +14,13 @@ public class CashEndPoint {
     CashService cashService;
 
     @PostMapping
-    public Object setValue(@RequestParam String key, @RequestParam String value) {
-        CashPair cashPair = cashService.setCash(key, value);
+    public Object setValue(@RequestParam String name, @RequestParam String value) {
+        CashPair cashPair = cashService.setCash(name, value);
         return ResponseEntity.ok(cashPair);
     }
 
     @GetMapping
-    public Object getValue(@RequestParam String key){
-        return cashService.getCash(key);
+    public Object getValue(@RequestParam String name){
+        return cashService.getCash(name);
     }
 }

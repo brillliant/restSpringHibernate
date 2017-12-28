@@ -1,35 +1,40 @@
 package my.dao.bean;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "cash_pair")
 public class CashPair implements Serializable {
 
-    @Id
-    @Column(name = "key")
-    private String key;
+    private static final long serialVersionUID = 20150602L;
 
-    @Column(name = "value")
+    @Id
+    private String name;
+
     private String value;
 
     public CashPair() {
     }
 
-    public CashPair(String key, String value) {
-        this.key = key;
+    public CashPair(String name, String value) {
+        this.name = name;
         this.value = value;
     }
 
-    public String getKey() {
-        return key;
+    public String getName() {
+        return name;
     }
 
     public String getValue() {
         return value;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

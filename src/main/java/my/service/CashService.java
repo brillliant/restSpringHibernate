@@ -19,21 +19,24 @@ public class CashService {
     private Map<String,String> concurrentHashMap = new ConcurrentHashMap();
 
 
-    public CashPair setCash(String key, String value){
-        concurrentHashMap.put(key, value);
-        CashPair cashPair = new CashPair(key, value);
-        //cashPairDAO.save(cashPair);
+    public CashPair setCash(String name, String value){
+        concurrentHashMap.put(name, value);
+        CashPair cashPair = new CashPair(name, value);
+        cashPairDAO.save(cashPair);
         return cashPair;
     }
 
-    public CashPair getCash(String key){
+    public CashPair getCash(String name){
         CashPair cashPair;
-        String value = concurrentHashMap.get(key);
+        String value = concurrentHashMap.get(name);
 
         if(value != null){
-            cashPair = new CashPair(key, value);
+            cashPair = new CashPair(name, value);
         } else {
-            cashPair = cashPairDAO.getCashPair(key);
+            cashPair = cashPairDAO.getCashPair(name);
+            if(cashPair != null && cashPair.getName() != null && cashPair.getValue() != null) {
+                concurrentHashMap.put(cashPair.getName(), cashPair.getValue());
+            }
         }
         return cashPair;
     }
