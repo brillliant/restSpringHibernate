@@ -6,17 +6,17 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
- <!--   <http auto-config="true">
-        <intercept-url pattern="/cash/**" access="ROLE_USER" />
-        <logout/>
+    <http auto-config="true" use-expressions="true">
+        <intercept-url pattern="/cash/**" access="hasRole('ROLE_USER')" />
+        <csrf disabled="true"/>
     </http>
 
     <authentication-manager>
         <authentication-provider>
-            <user-service >
+            <user-service>
                 <user name="user" password="pass" authorities="ROLE_USER" />
             </user-service>
         </authentication-provider>
-    </authentication-manager>-->
+    </authentication-manager>
 
 </beans:beans>
