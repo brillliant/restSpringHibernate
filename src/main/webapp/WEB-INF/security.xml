@@ -20,8 +20,8 @@
     <!-- the security namespace configuration -->
     <http use-expressions="true" entry-point-ref="digestEntryPoint">
         <intercept-url pattern="/**" access="isAuthenticated()" />
-
         <custom-filter ref="digestFilter" after="BASIC_AUTH_FILTER" />
+        <csrf disabled="true"/>
     </http>
 
     <authentication-manager>
