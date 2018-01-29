@@ -4,11 +4,11 @@
 
 <web-app>
     <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <filter-name>springSecurityTokenFilter</filter-name>
+        <filter-class>my.security.TokenAuthenticationFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-name>springSecurityTokenFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
